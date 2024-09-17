@@ -1,5 +1,17 @@
-import { createApp } from 'vue'
+import {createApp} from 'vue'
 import App from './App.vue'
 import router from './router'
+import {createDiscreteApi} from 'naive-ui'
 
-createApp(App).use(router).mount('#app')
+
+const {message, dialog, notification, loadingBar} = createDiscreteApi([
+    'message',
+    'dialog',
+    'notification',
+    'loadingBar'
+]);
+export {message, dialog, notification, loadingBar};
+
+const app = createApp(App)
+app.use(router)
+app.mount('#app')
